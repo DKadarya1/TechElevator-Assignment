@@ -4,7 +4,7 @@
 ✅ 3. ~/playground/canada exists
 ✅ 4. ~/playground/usa/ohio exists
 ✅ 5. ~/playground/usa/pennsylvania exists
-❗️ 6. ~/playground/usa/michigan does not exist
+✅ 6. ~/playground/usa/michigan exists
 ❗️ 7. ~/playground/canada/quebec does not exist
 ❗️ 8. ~/playground/canada/british columbia does not exist
 ❗️ 9. ~/playground/usa/ohio/cuyahoga does not exist
@@ -22,4 +22,4 @@
 ❗️ 21. ~/playground/canada/british columbia/vancouver.txt does not exist
 ❗️ 22. ~/playground/canada/british columbia/prince-george.txt does not exist
 
-5/22 tests pass
+6/22 tests pass
