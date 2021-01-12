@@ -18,8 +18,8 @@
 ✅ 17. ~/playground/usa/pennsylvania/allegheny/pittsburgh.txt exists
 ✅ 18. ~/playground/usa/michigan/wayne/detroit.txt exists
 ❗️ 19. ~/playground/canada/quebec/montreal.txt does not exist
-❗️ 20. ~/playground/canada/quebec/quebec-city.txt does not exist
+✅ 20. ~/playground/canada/quebec/quebec-city.txt exists
 ❗️ 21. ~/playground/canada/british columbia/vancouver.txt does not exist
 ❗️ 22. ~/playground/canada/british columbia/prince-george.txt does not exist
 
-18/22 tests pass
+19/22 tests pass
