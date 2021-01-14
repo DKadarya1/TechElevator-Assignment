@@ -28,9 +28,10 @@ public class LectureTest {
     }
 
     @Test
-    public void testReturnDoubleOfTwo() {
-        assertTrue("Value returned should be a double", Double.class.isInstance(exercises.returnDoubleOfTwo()));
+    public void  testReturnDoubleOfTwo() {
+    	assertTrue("Value returned should be a double", Double.class.isInstance(exercises.returnDoubleOfTwo()));
         assertEquals("Value returned should still equal two", 2.0, exercises.returnDoubleOfTwo(), 0);
+    }
     }
 
     @Test

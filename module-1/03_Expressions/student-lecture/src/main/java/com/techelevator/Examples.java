@@ -32,7 +32,7 @@ public class Examples {
 		result = ('a' != 'b');
 		System.out.println("'a' != 'b' : " + result);
 		System.out.println();
-
+	
 		/*
 		 >  Greater than
 		 <  Less than
@@ -175,7 +175,7 @@ public class Examples {
 		int firstVariable = 2;
 		if (firstVariable > 0) {
 			int secondVariable = firstVariable;
-		}
+		}	
 		//int thirdVariable = secondVariable * 2; // this will cause a compile error because secondVariable is not "in scope"
 		//int firstVariable = 3;  // this is a compiler error because we already have a variable named firstVariable in this scope
 		int secondVariable = 7; // this is allowed because there is no variable named secondVariable in this scope
@@ -183,7 +183,7 @@ public class Examples {
 		boolean burnItDown = shouldBurnDownTheBuilding(14, 20);
 	}
 
-	static boolean shouldBurnDownTheBuilding(int numberOfEmployees, int piecesOfCake) {
+	public static boolean shouldBurnDownTheBuilding(int numberOfEmployees, int piecesOfCake) {
 		if (numberOfEmployees > piecesOfCake) {
 			return true;
 		} else {
