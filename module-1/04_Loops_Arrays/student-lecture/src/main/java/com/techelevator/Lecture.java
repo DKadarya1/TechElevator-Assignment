@@ -88,7 +88,7 @@ public class Lecture {
             double eight = five + three;
         }
 
-        return 0;
+        return one;
     }
 
     /*
@@ -112,8 +112,8 @@ public class Lecture {
     */
     public boolean returnCorrectCount() {
         int[] arrayToLoopThrough = { 4, 23, 9 };
-
         int counter = 0;
+
 
         //     Start;       Keep going while         Increment by one;
         for (int i = 1; i < arrayToLoopThrough.length; i++) {
