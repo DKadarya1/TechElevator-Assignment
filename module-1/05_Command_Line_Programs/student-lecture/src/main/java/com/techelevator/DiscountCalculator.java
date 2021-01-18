@@ -17,7 +17,7 @@ class DiscountCalculator {
         // The answer needs to be saved as a double
         System.out.print("Enter the discount amount (w/out percentage): ");
 
-
+        
 
         // Prompt the user for a series of prices
         System.out.print("Please provide a series of prices (space separated): ");
