@@ -21,8 +21,9 @@ Scanner input = new Scanner(System.in);
 			convertedTemp = (temperature * 1.8 + 32);
 		}
 		else {
-			convertedTemp = (temperature / 1.8 - 32);
+			convertedTemp = (temperature - 32) / 1.8;
 		}
+		
 		System.out.println(convertedTemp);
 	}
 }
