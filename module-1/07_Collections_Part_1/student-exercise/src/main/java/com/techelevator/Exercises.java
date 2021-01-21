@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercises {
@@ -16,9 +17,14 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String> array2List = new ArrayList<String>();
+		for (String fruit: stringArray){
+			array2List.add(fruit);
+		}
+		return array2List;
+				
 	}
-
+	
 	/*
 	 Given a list of Strings, return an array containing the same Strings in the same order
 	 list2Array( ["Apple", "Orange", "Banana"] )  ->  {"Apple", "Orange", "Banana"}
@@ -26,8 +32,14 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+	
+		
+		String [] list2Array = stringList.toArray(new String[stringList.size()]);
+		
+		return list2Array;
+				
 	}
+	
 
 	/*
 	 Given an array of Strings, return an ArrayList containing the same Strings in the same order
@@ -37,8 +49,19 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
-	}
+		
+			List<String> no4LetterWords = new ArrayList<String>();
+			for (String word: stringArray){
+				if(word.length() != 4) {
+					
+				no4LetterWords.add(word);
+				
+				
+			}
+			}
+			return no4LetterWords;
+					
+		}
 
 	/*
 	 Given an array of ints, divide each int by 2, and return an ArrayList of Doubles.
@@ -47,7 +70,11 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> doubleDivide = new ArrayList<Double>();
+		for (int divide: intArray) {
+			doubleDivide.add(divide / 2.0);
+		}
+		return doubleDivide;
 	}
 
 	/*
@@ -57,7 +84,7 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		return Collections.max(integerList);
 	}
 
 	/*
@@ -67,7 +94,18 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		
+		List<Integer> onlyOdds = new ArrayList<Integer>();
+		
+		for (Integer oddNum: integerArray){
+			
+			if (oddNum % 2 != 0){
+				onlyOdds.add(oddNum);
+			}
+			
+		}
+		
+		return onlyOdds;
 	}
 
 	/*
@@ -78,6 +116,20 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+			
+		int count = 0;
+		
+		for (Integer twiceNum: integerList ){
+			if (intToFind == twiceNum){
+				count = count + 1;
+				
+				
+			}
+		}
+		if (count == 2){
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -95,7 +147,22 @@ public class Exercises {
 	 equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+	
+		List<String> fizzBuzzList = new ArrayList<String>();
+		
+		for (Integer checkFizzBuzz: integerArray){
+			if (checkFizzBuzz % 3 == 0 && checkFizzBuzz % 5 == 0){
+				fizzBuzzList.add("FizzBuzz");
+			} else if (checkFizzBuzz % 3 == 0){
+				fizzBuzzList.add("Fizz");
+			} else if (checkFizzBuzz % 5 == 0){
+				fizzBuzzList.add("Buzz");
+			} else {
+				fizzBuzzList.add(checkFizzBuzz.toString());
+			}
+		}
+		
+		return fizzBuzzList;
 	}
 
 	/*
@@ -106,7 +173,21 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
-	}
-
-}
+			
+			List<Integer> interLeave = new ArrayList<Integer>();
+		
+		for (int i = 0; i < Math.max(listOne.size(), listTwo.size()); i++) {
+			if ( i < listOne.size()){
+				interLeave.add(listOne.get(i));
+			}
+			
+			if ( i < listTwo.size()){
+				interLeave.add(listTwo.get(i));
+			}
+			
+		}
+			
+		
+		
+		return interLeave;
+	}}
