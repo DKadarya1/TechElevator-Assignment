@@ -52,7 +52,6 @@ public class Exercises {
 		if (!animalGroupName.containsKey(animalName)){
 			return "unknown";
 		}		
-		return animalGroupName.get(animalName);
 		
 	}
 	
