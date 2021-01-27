@@ -11,14 +11,21 @@ public class SavingsAccount extends BankAccount {
 
 	}
 
-	public SavingsAccount(String accountNumber, BigDecimal balance) {
-
-		super(accountNumber, balance, accountNumber);
-
+	public SavingsAccount(String accountHolder, String accountNumber) {
+		super (accountHolder, accountNumber);
+		int balance = 0;
+	
+	}
+	
+	public SavingsAccount(String accountHolder, String accountNumber, int balance ) {
+		super (accountHolder, accountNumber);
+		
+		
+		
 	}
 
 	
-	public BigDecimal withdraw(BigDecimal amountToWithdraw) {
+	public int withdraw(int amountToWithdraw) {
 
 		if (super.getBalance().doubleValue() > 150) {
 
@@ -27,7 +34,7 @@ public class SavingsAccount extends BankAccount {
 		} else {
 			if (((super.getBalance().doubleValue() < 150) && (super.getBalance().doubleValue() >= 0))&&
 					amountToWithdraw.doubleValue() <= super.getBalance().doubleValue()) {
-				super.withdraw(amountToWithdraw.add(new BigDecimal("2.00")));
+				super.withdraw(amountToWithdraw.add (new int("2.00")));
 			} else {
 
 				return super.getBalance();

@@ -1,39 +1,47 @@
 package com.techelevator;
 
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccount {
 
 	 private String accountNumber;
-	 private BigDecimal balance = new BigDecimal("0");
+	 private int balance = 0;
 	 private String accountHolderName;
 	 int amountToDeposit;
 	 int amountToWithdraw;
 	
 
 	
-	public String getAccountHolderName() {
-		return accountHolderName;
-	}
+	
 
 
 	public BankAccount() {
-		balance = new BigDecimal ("0.00");
+		balance = 0;
 		accountNumber = "unknown";
 		accountHolderName = "unknown";
 		
 	}
 	
-	public BankAccount(String accountNumber, BigDecimal balance, String accountHolderName) {
+	public BankAccount(String accountHolder, String accountNumber) {
+		this.accountHolderName = accountHolder;
 		this.accountNumber = accountNumber;
+		this.balance = 0;
+	}
+	
+	public BankAccount(String accountHolder, String accountNumber, int balance ) {
+		this.accountHolderName = accountHolder;
 		this.balance = balance;
-		this.accountHolderName = accountHolderName;
+		this.accountNumber = accountNumber;
+		
+		
 	}
 		
 // getters & setters		
+	
+	public String getAccountHolderName() {
+		return accountHolderName;
+	}
 	
 	public String getAccountNumber() {
 		return accountNumber;
@@ -44,29 +52,29 @@ public class BankAccount {
 		return null;
 	}
 	
-	public BigDecimal getBalance() {
+	public int getBalance() {
 		
 		return balance;
 	}
 
 	
-	private void setBalance(BigDecimal balance) {
+	private void setBalance(int balance) {
 		this.balance = balance;
 	}
 	
 	
 // Methods
 	
-	public BigDecimal deposit(BigDecimal amountToDeposit) {
-		balance = balance.add(amountToDeposit);
+	public int deposit(int amountToDeposit) {
+		balance = balance + amountToDeposit;
 		this.setBalance(balance);
 		return balance;
 		
 	}
 
-	public BigDecimal withdraw(BigDecimal amountToWithdraw) {
+	public int withdraw(int amountToWithdraw) {
 		
-		balance = balance.subtract(amountToWithdraw);
+		balance = balance - amountToWithdraw;
 		this.setBalance(balance);
 		return balance;
 	}

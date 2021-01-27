@@ -9,14 +9,17 @@ public class CheckingAccount extends BankAccount {
 		}
 	
 	
-	public CheckingAccount(String accountNumber, BigDecimal balance) {
-		super(accountNumber, balance, accountNumber);
-		}
-	
+	public CheckingAccount(String accountHolder, String accountNumber) {
+		super (accountHolder, accountNumber);
+		int balance = 0;
+		
+		
+		
+	}
 	
 
 
-	public BigDecimal withdraw(BigDecimal amountToWithdraw) {
+	public int withdraw(int amountToWithdraw) {
 		//if balance < 0
 		//$10.00 overdraft fee
 		//then  overdraft up to $100
@@ -28,7 +31,7 @@ public class CheckingAccount extends BankAccount {
 	}	
 		else {
 			if(super.getBalance().doubleValue() - amountToWithdraw.doubleValue() >= -100) {
-				super.withdraw(amountToWithdraw.add(new BigDecimal ("10")));
+				super.withdraw(amountToWithdraw.add(new int ("10")));
 			}
 			else {
 				return super.getBalance();
