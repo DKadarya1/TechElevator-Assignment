@@ -1,10 +1,13 @@
 package com.techelevator;
 
-import java.math.BigDecimal;
+
 import java.math.RoundingMode;
 
 public class SavingsAccount extends BankAccount {
 
+	int amountToDeposit = 2;
+	private BankAccount checkingAccount;
+	int newBalance = checkingAccount.deposit(amountToDeposit); `
 
 	public SavingsAccount() {
 		super();
@@ -13,7 +16,7 @@ public class SavingsAccount extends BankAccount {
 
 	public SavingsAccount(String accountHolder, String accountNumber) {
 		super (accountHolder, accountNumber);
-		int balance = 0;
+		
 	
 	}
 	

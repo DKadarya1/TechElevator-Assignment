@@ -1,6 +1,5 @@
 package com.techelevator;
 
-import java.math.BigDecimal;
 
 public class CheckingAccount extends BankAccount {
 
@@ -13,11 +12,12 @@ public class CheckingAccount extends BankAccount {
 		super (accountHolder, accountNumber);
 		int balance = 0;
 		
-		
-		
 	}
 	
-
+	public CheckingAccount(String accountHolder, String accountNumber, int balance ) {
+		super (accountHolder, accountNumber);
+	
+	}
 
 	public int withdraw(int amountToWithdraw) {
 		//if balance < 0
