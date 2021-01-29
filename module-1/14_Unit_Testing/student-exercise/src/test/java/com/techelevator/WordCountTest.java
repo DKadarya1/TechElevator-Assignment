@@ -1,0 +1,29 @@
+package com.techelevator;
+
+import java.util.Map;
+
+import org.junit.*;
+
+
+
+
+
+
+public class WordCountTest {
+
+	@Test
+	public void input_of_null_returns_empty_map() {
+		
+		WordCount objectToTest = new WordCount(); //Arrange
+		
+		Map<String, Integer> output = objectToTest.getCount(null); //Act
+		
+		//Assert
+		Assert.assertNotNull(output);
+		Assert.assertEquals(0, output.size());
+	}
+	
+	@Test
+	public void 
+}
+
