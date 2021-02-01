@@ -4,11 +4,6 @@ import java.util.Map;
 
 import org.junit.*;
 
-
-
-
-
-
 public class WordCountTest {
 
 	@Test
@@ -24,6 +19,16 @@ public class WordCountTest {
 	}
 	
 	@Test
-	public void 
+	public void input_of_array_returns_empty_map() {
+		//Arrange
+		WordCount objectUnderTest = new WordCount();
+		String[] emptyArray = new String[0];
+		
+		Map<String, Integer> output = objectUnderTest.getCount(emptyArray); //Act
+		
+		//Assert
+		Assert.assertNotNull(output);;
+		Assert.assertEquals(0, output.size());
+	}
 }
 
