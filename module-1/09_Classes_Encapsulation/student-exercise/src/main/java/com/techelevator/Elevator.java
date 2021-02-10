@@ -3,16 +3,16 @@ package com.techelevator;
 public class Elevator {
 
 	private int shaftNumber;
-    private int currentLevel;
-    private int numberOfLevels;
+    private int currentFloor;
+    private int numberOfFloors;
     private boolean doorOpen = true;
     private boolean moving;
 
     
     public Elevator(int shaftNumber, int totalNumberOfFloors) {
         this.shaftNumber = shaftNumber;
-        this.numberOfLevels = totalNumberOfFloors;
-        this.currentLevel = 1;
+        this.numberOfFloors = totalNumberOfFloors;
+        this.currentFloor = 1;
     }
 
   
@@ -22,12 +22,12 @@ public class Elevator {
 
    
     public int getCurrentLevel() {
-        return currentLevel;
+        return currentFloor;
     }
 
     
     public int getNumberOfLevels() {
-        return numberOfLevels;
+        return numberOfFloors;
     }
 
  
@@ -62,9 +62,9 @@ public class Elevator {
      
     public boolean GoUp(int desiredFloor)
     {
-        currentLevel = desiredFloor;
+        currentFloor = desiredFloor;
 
-        if (desiredFloor > currentLevel && desiredFloor <= numberOfLevels && doorOpen)
+        if (desiredFloor > currentFloor && desiredFloor <= numberOfFloors && doorOpen)
         {
             return true;
         }
@@ -77,9 +77,9 @@ public class Elevator {
    
     public boolean GoDown(int desiredFloor)
     {
-        if (!doorOpen && desiredFloor < currentLevel && desiredFloor > 0)
+        if (!doorOpen && desiredFloor < currentFloor && desiredFloor > 0)
         {
-            currentLevel -= desiredFloor;
+            currentFloor -= desiredFloor;
             return true;
         }
 
