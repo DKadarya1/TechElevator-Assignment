@@ -14,23 +14,21 @@ public class AuctionService {
 
 
     public Auction[] listAllAuctions() {
-        // api code here
-        return null;
+    	Auction[] output = restTemplate.getForObject( "http://localhost:3000/auctions", Auction[].class);
+    	return output;
     }
 
     public Auction listDetailsForAuction(int id) {
-        // api code here
-        return null;
+    	 return restTemplate.getForObject("http://localhost:3000/auctions/1", Auction.class);
+        
     }
 
     public Auction[] findAuctionsSearchTitle(String title) {
-        // api code here
-        return null;
+    	return restTemplate.getForObject( BASE_URL +"?title_like="+title, Auction[].class);
+    	
     }
 
     public Auction[] findAuctionsSearchPrice(double price) {
-        // api code here
-        return null;
-    }
+    	return restTemplate.getForObject(BASE_URL + "?currentBid_lte=" + price, Auction[].class) ;    }
 
 }

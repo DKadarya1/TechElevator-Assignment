@@ -17,6 +17,9 @@ public class App {
         while (true) {
             menuSelection = consoleService.printMainMenu();
             if (menuSelection == 1) {
+            	
+            	//consoleService.printAuctions(auctionService.listAllAuctions());
+            	
             	Auction[] auctions = auctionService.listAllAuctions();
             	if (auctions != null) {
                     consoleService.printAuctions(auctions);
