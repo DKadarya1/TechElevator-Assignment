@@ -109,8 +109,10 @@ public class AuctionService {
     	      restTemplate.put(API_URL + "/" + auction.getId(), entity);
     	    } catch (RestClientResponseException ex) {
     	      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    	      return null;
     	    } catch (ResourceAccessException ex) {
     	      console.printError(ex.getMessage());
+    	      return null;
     	    }
     	    return auction;
     	  }
