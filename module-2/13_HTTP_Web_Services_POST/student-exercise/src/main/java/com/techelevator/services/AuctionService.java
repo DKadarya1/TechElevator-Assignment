@@ -78,7 +78,7 @@ public class AuctionService {
         HttpEntity<Auction> entity = new HttpEntity<>(incomingAuction, headers);
 
         		//Send it to Internet
-        String url = API_URL + "auctions/" +incomingAuction.getId() + "/auctions";
+        String url = API_URL;
         Auction confirmed = null;
         try {
         	confirmed =restTemplate.postForObject(url, entity, Auction.class);
@@ -106,7 +106,7 @@ public class AuctionService {
     	    HttpEntity<Auction> entity = new HttpEntity<>(auction, headers);
 
     	    try {
-    	      restTemplate.put(API_URL + "auctions/" + auction.getId(), entity);
+    	      restTemplate.put(API_URL + "/" + auction.getId(), entity);
     	    } catch (RestClientResponseException ex) {
     	      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
     	    } catch (ResourceAccessException ex) {
@@ -117,10 +117,18 @@ public class AuctionService {
     
 
     public boolean delete(int id) {
-    	restTemplate.delete(API_URL +"auctions/" +id);
-		return false;
+    	try {
+    		restTemplate.delete(API_URL +"/" +id);
+    	 } catch (RestClientResponseException ex) {
+   	      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+   	   return false;
+   	    } catch (ResourceAccessException ex) {
+   	      console.printError(ex.getMessage());
+   	      return false;
+   	    }
     	
-    }
+   	    return true;
+   	  }
 
     private HttpEntity<Auction> makeEntity(Auction auction) {
         HttpHeaders headers = new HttpHeaders();
