@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.techelevator.models.Auction;
 
+
 public class AuctionService {
 
     public static final String API_URL = "http://localhost:3000/auctions";
@@ -64,20 +65,61 @@ public class AuctionService {
         }
         return auctions;
     }
-
+    
     public Auction add(String auctionString) {
-        // place code here
-        return null;
-    }
+    	Auction incomingAuction = makeAuction(auctionString);
+        if(incomingAuction == null) {
+    return null;
+        }
+        //Header
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        //HTTP box
+        HttpEntity<Auction> entity = new HttpEntity<>(incomingAuction, headers);
+
+        		//Send it to Internet
+        String url = API_URL + "auctions/" +incomingAuction.getId() + "/auctions";
+        Auction confirmed = null;
+        try {
+        	confirmed =restTemplate.postForObject(url, entity, Auction.class);
+        }catch(RestClientResponseException rcre) {
+        	
+        	console.printError("Server Error!\n" + rcre.getRawStatusCode() + ": " + rcre.getStatusText());
+        }catch(ResourceAccessException rae) {
+        	console.printError("Client Error");
+        	
+        }
+		return confirmed;
+      }
+		
+    
+    
 
     public Auction update(String auctionString) {
-        // place code here
-        return null;
-    }
+    	 Auction auction = makeAuction(auctionString);
+    	    if (auction == null) {
+    	      return null;
+    	    }
+
+    	    HttpHeaders headers = new HttpHeaders();
+    	    headers.setContentType(MediaType.APPLICATION_JSON);
+    	    HttpEntity<Auction> entity = new HttpEntity<>(auction, headers);
+
+    	    try {
+    	      restTemplate.put(API_URL + "auctions/" + auction.getId(), entity);
+    	    } catch (RestClientResponseException ex) {
+    	      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    	    } catch (ResourceAccessException ex) {
+    	      console.printError(ex.getMessage());
+    	    }
+    	    return auction;
+    	  }
+    
 
     public boolean delete(int id) {
-    	// place code here
-    	return false; 
+    	restTemplate.delete(API_URL +"auctions/" +id);
+		return false;
+    	
     }
 
     private HttpEntity<Auction> makeEntity(Auction auction) {
