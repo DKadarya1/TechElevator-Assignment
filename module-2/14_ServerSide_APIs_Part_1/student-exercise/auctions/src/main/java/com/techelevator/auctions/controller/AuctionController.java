@@ -30,7 +30,7 @@ public class AuctionController {
         if(currentBid_lte > 0) {
             return dao.searchByPrice(currentBid_lte);
         }
-        if(currentBid_lte > 1 & !title_like.equals("")) {
+        if(currentBid_lte > 0 & !title_like.equals("")) {
             return dao.searchByTitleAndPrice(title_like, currentBid_lte);
         }
 
