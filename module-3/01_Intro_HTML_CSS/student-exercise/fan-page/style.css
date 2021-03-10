@@ -1,0 +1,23 @@
+body{
+    font-size: 15px;
+    background-color: navy;
+    color: white;
+}
+
+H1, H2 {
+    text-align: center;
+}
+H2 {
+    
+    text-decoration: underline;
+}
+
+H3{
+    text-decoration: underline;
+}
+blockquote{
+    font-style: italic;
+}
+heading{
+    font-display: underline;
+}

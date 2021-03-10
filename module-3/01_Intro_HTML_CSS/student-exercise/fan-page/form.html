@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations</title>
+    <link rel="stylesheet" href="form.css" />
+</head>
+<body>
+    <header>
+        <h1>Form</h1>
+        <p>Please fill out the form</p>
+    </header>
+
+   
+
+    <main>
+        <h2> Form</h2>
+        <form method="POST" action="https://example.com/api/reservation"></form>
+            <div>
+                <label for="name">Name:</label>
+                <input id="name" name="name" type="text" required/>
+            </div>
+            <div>
+                <label for="Email">Email Address:</label>
+                <input id="Email" name="Email" type="text" required/>
+            </div>
+            <div>
+                <label for="dateOfBirth">Date Of Birth:</label>
+                <input id="dateOfBirth" name="dateOfBirth" type="date" />
+            </div>
+            <div>
+                <label for="color">Favorite Color:</label>
+                <input id="color" name="color" type="color" />
+            </div>
+            <div>
+                <label for="number">Favorite Number:</label>
+                <input id="number" name="number" type="number" />
+            </div>
+            <div>
+                <label for="confirm">Confirmation that the data is correct                </label>
+                <input id="confirm" name="confirm" type="checkbox" />
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
+        </form>
+    </main>
+</body>
+</html>
