@@ -50,3 +50,78 @@ header img {
 #student-picture img{
     border-radius: 50%;
 }
+
+#main-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 50px;
+    align-items: center;
+    grid-template-areas: 
+    'heads heads pictures'
+    'quote quote pictures'
+    'profile profile contact';
+}
+
+
+#experience-grid{
+    
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   row-gap: 20px;
+   column-gap: 50px;
+}
+
+#headline{
+    grid-area: heads;
+
+}
+#student-picture{
+    grid-area: pictures;
+    text-align: center;
+}
+
+#student-profile{
+    grid-area: profile;
+
+}
+#student-quote{
+    grid-area: quote;
+}
+
+#student-contact{
+    grid-area: contact;
+    text-align: center;
+}
+@media screen and (max-width: 1024px) {
+    #main-grid{
+        column-gap: 35px;
+        grid-template-areas: 
+        'heads heads pictures'
+        'quote quote pictures'
+        'profile profile contact';
+    }
+    #experience-grid {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-areas:
+         'code code'
+         'data data'
+         'web design';
+    }
+}
+@media screen and (max-width: 450px) {
+    #main-grid{
+        grid-template-columns: 1fr 1fr 5fr;
+        grid-template-areas: 
+        'heads heads pictures'
+        'quote quote pictures'
+        'profile profile contact';
+    }
+    #experience-grid {
+        grid-template-columns: 1fr 1fr 5fr;
+        grid-template-areas:
+         'code code'
+         'data data'
+         'web design';
+    }
