@@ -70,6 +70,10 @@ header img {
    grid-template-columns: 1fr 1fr 1fr;
    row-gap: 20px;
    column-gap: 50px;
+   grid-template-areas:
+         'code code'
+         'data data'
+         'web design';
 }
 
 #headline{
@@ -125,3 +129,4 @@ header img {
          'data data'
          'web design';
     }
+}

@@ -6,10 +6,12 @@ body {
 header {
   background-color: #F0F0F0;
   padding: 20px;
+  
 }
 
 .logo {
   width: 140px;
+  
 }
 
 ul {
@@ -36,4 +38,9 @@ a:visited {
 a:hover {
   color: #00AFEF;
   text-decoration: underline;
+}
+
+ul{
+  display: flex;
+  flex-direction: row;
 }
