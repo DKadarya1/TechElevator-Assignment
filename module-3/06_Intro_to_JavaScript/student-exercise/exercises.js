@@ -19,6 +19,11 @@
  * @param {boolean} [recommendation=false] does the student have a recommendation
  * @returns {boolean} true if they are admitted
  */
+function isAdmitted(gpa, satScore=0, recommendation=false){
+    return true;
+}
+
+    
 
 /**
  * Write a function called useParameterToFilterArray that takes an anonymous
@@ -28,6 +33,9 @@
  * @returns {number[]} the filtered array
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
+function useParameterToFilterArray(filterFunction){
+    return unfilteredArray.filter(filterFunction)
+}
 
 /**
  * Write a function called makeNumber that takes two strings
@@ -41,6 +49,9 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @param {string} [second=''] the second string of digits to concatenate
  * @returns {number} the resultant number
  */
+function makeNumber(first, second = ''){
+    return first.concat(second);
+}
 
 /**
  * Write a function called addAll that takes an unknown number of parameters
