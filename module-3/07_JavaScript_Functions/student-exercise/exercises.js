@@ -19,7 +19,9 @@
  * @param {boolean} [recommendation=false] does the student have a recommendation
  * @returns {boolean} true if they are admitted
  */
-
+function isAdmitted(gpa, satScore=0, recommendation=false){
+    return true;
+}
 /**
  * Write a function called useParameterToFilterArray that takes an anonymous
  * function and uses that in the `unfilteredArray` filter function. Return the result.
@@ -28,6 +30,9 @@
  * @returns {number[]} the filtered array
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
+function useParameterToFilterArray(filterFunction){
+    return unfilteredArray.filter(filterFunction)
+}
 
 /**
  * Write a function called makeNumber that takes two strings
@@ -41,6 +46,10 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @param {string} [second=''] the second string of digits to concatenate
  * @returns {number} the resultant number
  */
+function makeNumber(first, second = ''){
+    let x = first + second;
+    return parseFloat(x);
+}
 
 /**
  * Write a function called addAll that takes an unknown number of parameters
@@ -49,13 +58,24 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @param {...number} num a series of numbers to add together
  * @returns {number} the sum of all the parameters (or arguments)
  */
-
+function addAll() {
+    let x = 0;
+    for (let i=0; i < arguments.length; i++) {
+        x += arguments[i];
+    }
+    return x;
+}
 /*
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
  */
+function makeHappy(words) {
+    return words.map((word)=>{
+        return 'Happy' +word;
 
+    });
+}
 /*
  * Write and document a function called getFullAddressesOfProperties
  * that takes an array of JavaScript objects containing the
@@ -72,14 +92,30 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  *     streetNumber streetName streetType city state zip
  *
  * Use `map` and an anonymous function.
+ *
+ * @param {address[]} array of addresses
+ * @returns {String[]} string
  */
-
+function getFullAddressesOfProperties(input) {
+    return input.map((address) =>{
+        return '${address.streetNumber} ${address.streetName} ${address.streetType} ${address.city} ${address.state} ${address.zip}'
+        
+    });
+}
 /*
  * Write and document a function called findLargest.
  *
  * Using `forEach`, find the largest element in an array.
  * It must work for strings and numbers.
- */
+ */function findLargest(array){
+     let x = '';
+     array.forEach((element)=>{
+         if(element>x){
+             x=element;
+         }
+     });
+     return x;
+ }
 
 /*
  * CHALLENGE
