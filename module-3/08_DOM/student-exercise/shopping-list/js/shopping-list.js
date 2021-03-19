@@ -32,8 +32,10 @@ function setPageTitle() {
   const test = document.getElementById('groceries');
   groceries.forEach((item) =>{
     const li = document.createElement('li');
-    li.innerText = item;
+    li.innerText = item.name;
     test.appendChild(li);
+
+   
   });
 }
 
