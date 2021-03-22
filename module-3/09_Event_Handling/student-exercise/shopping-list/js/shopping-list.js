@@ -39,3 +39,44 @@ function displayGroceries() {
 
 setPageTitle();
 displayGroceries();
+
+const tasks = document.querySelectorAll('li');
+
+  tasks.forEach((task) => {
+    // when you click on a task mark it completed
+    task.addEventListener('click', () => {
+      if (!task.classList.contains('completed')) {
+        task.classList.add('completed');
+        task.querySelector('i').classList.add('completed');
+      }
+    });
+
+    // when you double click a task remove the completed class
+    task.addEventListener('dblclick', () => {
+      if (task.classList.contains('completed')) {
+        task.classList.remove('completed');
+        task.querySelector('i').classList.remove('completed');
+      }
+    });
+  });
+
+  // mark all tasks as completed
+  
+  toggleAllBtn.addEventListener('click', () => {
+    if (allItemsIncomplete) {
+      tasks.forEach( (task) => {
+        task.classList.add('completed')
+        task.querySelector('i').classList.add('completed')
+      })
+       toggleAllBtn.innerText = 'Mark All Incomplete'
+       allItemsIncomplete = false;
+    }
+    else {
+      tasks.forEach( (task) => {
+        task.classList.remove('completed')
+        task.querySelector('i').classList.remove('completed') 
+      })
+      toggleAllBtn.innerText = 'Mark All Complete'
+        allItemsIncomplete = true;
+    }
+  })
