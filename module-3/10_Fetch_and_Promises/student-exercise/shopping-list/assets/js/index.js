@@ -8,7 +8,7 @@ loadButton.addEventListener("click", () => {
 });
 
 function loadGroceries() {
-    fetch('assets/data/shopping-list.json')
+    fetch('https://techelevator-pgh-teams.azurewebsites.net/api/techelevator/shoppinglist')
     .then((response) => {
         return response.json();
     })
