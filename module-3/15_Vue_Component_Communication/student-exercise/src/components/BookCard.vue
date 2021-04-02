@@ -1,14 +1,14 @@
 <template>
-  <div class="card">
-    <h2 class="book-title">{{ book.title }}</h2>
-    <h3 class="book-author">{{ book.author }}</h3>
-    <!-- Please leave <img> commented out until directed to remove open and close comment tags in the README. -->
-    <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
-     <div class="button-container" v-if="! enableAdd">
-        <button class="mark-read" v-on:click.prevent="setRead(true)" v-if=" ! book.read">Mark Read</button>
-        <button class="mark-unread" v-on:click.prevent="setRead(false)" v-if="book.read">Mark Unread</button>
-    </div>
-    <button v-if="enableAdd" v-on:click.prevent="addToReadingList(book)">Add to Reading List</button>
+  <div class="card" v-bind:class="{ read: b.read }">
+    <h2 class="book-title">{{ b.title }}</h2>
+     <h3 class="book-author">{{ b.author }}</h3>
+    <img v-if="b.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + b.isbn + '-M.jpg'" />
+    <!--
+    <button @click="handleClick" v-if="!b.read" class="mark-read" >Mark Read</button>
+    <button @click="handleClick" v-if="b.read" class="mark-unread" >Mark Unread</button>
+    -->
+    <button v-bind:class="b.read ? 'mark-read' : 'mark-unread'" v-on:click="handleClick">{{ b.read ? 'Mark Unread' : 'Mark Read' }}</button>
+   
   </div>
 </template>
 
@@ -16,20 +16,16 @@
 export default {
     name: 'book-card',
     props: {
-        book:Object
+        b: Object
     },
-    methods: {
-        setRead(value) {
-            this.$store.commit('SET_READ_STATUS', {book: this.book, value: value});
-        },
-        addToReadingList(book) {
-            let addedBook = Object.assign({ read: false }, book);
-            delete addedBook.bestSeller;
-            delete addedBook.newRelease;
-            this.$store.commit('SAVE_BOOK', addedBook);
+
+    methods : {
+        handleClick(){
+            this.$store.commit("FLIP_READ_STATUS", this.b);
+        }
+        }
     }
-}
-}
+
 </script>
 
 <style>

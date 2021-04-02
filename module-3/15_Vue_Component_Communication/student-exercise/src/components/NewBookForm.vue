@@ -1,43 +1,35 @@
 <template>
-  <form class="new-book-form" v-on:submit.prevent="saveBook">
-    <input class="title-input" type="text" placeholder="Title" v-model="book.title" />
-    <input class="author-input" type="text" placeholder="Author" v-model="book.author" />
-    <input class="isbn-input" type="text" placeholder="ISBN" v-model="book.isbn" />
-    <button>Save</button>
+<div>
+  <form class="new-book-form" @submit.prevent="addNewBook">
+    <input type="text" name="title" class="title-input"  placeholder="Title" v-model="newBook.title" />
+    <input type="text" name="author" class="author-input" placeholder="Author" v-model="newBook.author" />
+    <input type="text" name="isbn" class="isbn-input" placeholder="ISBN" v-model="newBook.isbn" />
+
+    <button type="submit">Add your book </button>
+
   </form>
+</div>
 </template>
 
 <script>
 export default {
-    name: "new-book-form",
+    name: 'new-book-form',
     data() {
         return {
-            newbook: {
+            newBook : {
                 read: true
             }
         };
     },
     methods: {
-        saveBook() {
-            this.$store.commit('SAVE_BOOK', this.book);
-            this.book = {
-                title: '',
-                author: '',
-                read: false,
-                isbn: ''
-            };
+        addNewBook() {
+            this.$store.commit("ADD_BERK", this.newBook);
+            
+            
         }
     }
 }
 </script>
 
 <style>
-.new-book-form {
-    margin: 20px;
-}
-
-.new-book-form input, .new-book-form button {
-    margin: 10px;
-    font-size: 1rem;
-}
 </style>

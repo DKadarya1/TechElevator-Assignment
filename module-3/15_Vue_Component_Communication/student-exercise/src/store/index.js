@@ -34,15 +34,15 @@ export default new Vuex.Store({
   
 },
 mutations: {
-  SAVE_BOOK(state, book) {
-    state.books.push(book);
+  ADD_BERK(state, incomingBook) {
+    state.books.push(incomingBook);
   },
-  FLIP_READ_STATUS(state, targetISBN,book) {
-    book = !book;
+  FLIP_READ_STATUS(state,book) {
+    book.read = !book.read;
   },
   MARK_READ(state, targetISBN) {
     const i =state.book.indexOf((bookerTWashington) =>{
-      return bookerTWashington.isbn ===isbn;
+      return bookerTWashington.isbn ===targetISBN;
 
     });
     state.books[i].read = true;
@@ -50,7 +50,7 @@ mutations: {
 
   MARK_UNREAD(state, targetISBN) {
     const i =state.book.indexOf((bookerTWashington) =>{
-      return bookerTWashington.isbn ===isbn;
+      return bookerTWashington.isbn ===targetISBN;
 
     });
     state.books[i].read = false;
