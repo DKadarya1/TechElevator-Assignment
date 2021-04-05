@@ -1,9 +1,23 @@
 <template>
-  <form class="new-book-form" v-on:submit.prevent="saveBook">
-    <input class="title-input" type="text" placeholder="Title" v-model="book.title" />
-    <input class="author-input" type="text" placeholder="Author" v-model="book.author" />
-    <input class="isbn-input" type="text" placeholder="ISBN" v-model="book.isbn" />
-    <button>Save</button>
+<div>
+    <a href = # v-if= "showForm === false"
+    v-on:click.prevent="showForm = true"> New Book Form </a>
+
+  <form class="new-book-form" v-on:submit.prevent="addNewBook" v-if="showForm === true">
+<div>
+    <label for ="title">Title:</label>
+    <input class="title-input" id="title" type="text" v-model="newBook.title" />
+</div>
+<div>
+        <label for ="Author">Author:</label>
+    <input class="author-input" id="Author" type="text" v-model="newBook.author" />
+</div>
+<div>
+        <label for ="isbn">ISBN:</label>
+    <input class="isbn-input" id="ISBN" type="text" v-model="newBook.isbn" />
+</div>
+<input type ="submit" value="Save" />
+<input type="button" value="Cancel" v-on:click.prevent="resetForm" />
   </form>
 </template>
 
@@ -12,23 +26,21 @@ export default {
     name: "new-book-form",
     data() {
         return {
-            book: {
-                title: '',
-                author: '',
-                read: false,
-                isbn: ''
+           showForm: true,
+           newBook: {
+               read:false
+           }
             }
-        }
     },
     methods: {
-        saveBook() {
-            this.$store.commit('SAVE_BOOK', this.book);
-            this.book = {
-                title: '',
-                author: '',
-                read: false,
-                isbn: ''
-            };
+        addNewBook() {
+            this.$store.commit("ADD_NEW_BOOK", this.newBook);
+            this.resetForm(); 
+
+        },
+        resetForm(){
+            this.showForm = false;
+            this.newBook ={};
         }
     }
 }

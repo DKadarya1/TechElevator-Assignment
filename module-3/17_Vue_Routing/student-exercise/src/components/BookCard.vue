@@ -1,29 +1,20 @@
 <template>
-  <div class="card" v-bind:class="{ read: book.read }">
-    <h2 class="book-title">{{ book.title }}</h2>
+  <div class="card" v-bind:class="{ read: book.read === true}">
+    <h1 class="book-title">{{ book.title }}</h1>
     <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
-    <h3 class="book-author">{{ book.author }}</h3>
-    <div class="button-container" v-if="! enableAdd">
-        <button class="mark-read" v-on:click.prevent="setRead(true)" v-if=" ! book.read">Mark Read</button>
-        <button class="mark-unread" v-on:click.prevent="setRead(false)" v-if="book.read">Mark Unread</button>
+    <p class="book-author">{{ book.author }}</p>
+        <button v-if="book.read ===false" class="mark-read" v-on:click = "toggleReadStatus()"> Mark Read</button>
+        <button v-if="book.read ===true" class="mark-unread" v-on:click = "toggleReadStatus()"> Mark UnRead</button>
     </div>
-    <button v-if="enableAdd" v-on:click.prevent="addToReadingList(book)">Add to Reading List</button>
-  </div>
 </template>
 
 <script>
 export default {
     name: 'book-card',
-    props: {
-        book: Object,
-        enableAdd: {
-            type: Boolean,
-            default: false
-        }
-    },
+    props: ['book'],
     methods: {
-        setRead(value) {
-            this.$store.commit('SET_READ_STATUS', {book: this.book, value: value});
+        toggleReadStatus(){
+            this.$store.commit("TOGGLE_READ_STATUS", this.book);
         },
         addToReadingList(book) {
             let addedBook = Object.assign({ read: false }, book);
@@ -31,8 +22,6 @@ export default {
             delete addedBook.newRelease;
             this.$store.commit('SAVE_BOOK', addedBook);
         }
-    }
-}
 </script>
 
 <style>
